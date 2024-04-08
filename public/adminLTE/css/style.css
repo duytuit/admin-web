@@ -1,0 +1,334 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+body.fixed .sidebar {
+  padding-bottom: 50px;
+}
+
+.content-header > h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.sidebar-menu > li > a {
+  padding: 10px 5px 10px 15px;
+  color: #dceef3;
+}
+
+.notify-group {
+  margin: 5px 0px;
+}
+
+.notify-label + .notify-label {
+  margin-left: 15px;
+}
+
+.private-label + .private-label {
+  margin-left: 15px;
+}
+
+.login-page,
+.register-page {
+  background-image: url("/adminLTE/img/dotted.png");
+  background-color: #222;
+}
+
+.login-box .btn-support {
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  padding: 0px;
+  line-height: 34px;
+  text-align: center;
+  color: #fff;
+}
+
+.login-box .btn-facebook {
+  background: #3964c1;
+}
+
+.login-box .btn-email {
+  background: #03a9f4;
+}
+
+.login-box .btn-phone {
+  background: #ff5722;
+}
+
+@media (max-width: 767px) {
+  .main-header .logo {
+      display: none;
+  }
+  .fixed .content-wrapper,
+  .fixed .right-side {
+      padding-top: 50px;
+  }
+}
+.border-bill {
+   border: 1px solid;
+   border-color: #3c8dbc!important;
+}
+
+.border-bill-detail {
+  border: 2px solid #ccc!important;
+}
+
+#fade_overlay {
+  background-color: #666;
+  bottom: 0;
+  display: none;
+  left: 0;
+  min-height: 800px;
+  opacity: 0.5;
+  position: fixed !important;
+  right: 0;
+  top: 0;
+  z-index: 9998;
+}
+
+#fade_loading {
+  position: absolute;
+  top: 35%;
+  left: 46%;
+}
+/* START TOOLTIP STYLES */
+[tooltip] {
+position: relative; /* opinion 1 */
+}
+
+/* Applies to all tooltips */
+[tooltip]::before,
+[tooltip]::after {
+text-transform: none; /* opinion 2 */
+font-size: .9em; /* opinion 3 */
+line-height: 1;
+user-select: none;
+pointer-events: none;
+position: absolute;
+display: none;
+opacity: 0;
+}
+[tooltip]::before {
+content: '';
+border: 5px solid transparent; /* opinion 4 */
+z-index: 1001; /* absurdity 1 */
+}
+[tooltip]::after {
+content: attr(tooltip); /* magic! */
+
+/* most of the rest of this is opinion */
+font-family: Helvetica, sans-serif;
+text-align: center;
+
+/* 
+  Let the content set the size of the tooltips 
+  but this will also keep them from being obnoxious
+  */
+min-width: 3em;
+max-width: 21em;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+padding: 1ch 1.5ch;
+border-radius: .3ch;
+box-shadow:  1em 2em -.5em rgba(0, 0, 0, 0.35);
+background: #333;
+color: #fff;
+margin-left: -25px;
+z-index: 1000; /* absurdity 2 */
+}
+
+/* Make the tooltips respond to hover */
+[tooltip]:hover::before,
+[tooltip]:hover::after {
+display: block;
+}
+
+/* don't show empty tooltips */
+[tooltip='']::before,
+[tooltip='']::after {
+display: none !important;
+}
+
+/* FLOW: UP */
+[tooltip]:not([flow])::before,
+[tooltip][flow^="up"]::before {
+bottom: 100%;
+border-bottom-width: 0;
+border-top-color: #333;
+}
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::after {
+bottom: calc(100% + 5px);
+}
+[tooltip]:not([flow])::before,
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::before,
+[tooltip][flow^="up"]::after {
+left: 50%;
+transform: translate(-50%, -.5em);
+}
+
+/* FLOW: DOWN */
+[tooltip][flow^="down"]::before {
+top: 100%;
+border-top-width: 0;
+border-bottom-color: #333;
+}
+[tooltip][flow^="down"]::after {
+top: calc(100% + 5px);
+}
+[tooltip][flow^="down"]::before,
+[tooltip][flow^="down"]::after {
+left: 50%;
+transform: translate(-50%, .5em);
+}
+
+/* FLOW: LEFT */
+[tooltip][flow^="left"]::before {
+top: 50%;
+border-right-width: 0;
+border-left-color: #333;
+left: calc(0em - 5px);
+transform: translate(-.5em, -50%);
+}
+[tooltip][flow^="left"]::after {
+top: 50%;
+right: calc(100% + 5px);
+transform: translate(-.5em, -50%);
+}
+
+/* FLOW: RIGHT */
+[tooltip][flow^="right"]::before {
+top: 50%;
+border-left-width: 0;
+border-right-color: #333;
+right: calc(0em - 5px);
+transform: translate(.5em, -50%);
+}
+[tooltip][flow^="right"]::after {
+top: 50%;
+left: calc(100% + 5px);
+transform: translate(.5em, -50%);
+}
+
+/* KEYFRAMES */
+@keyframes tooltips-vert {
+to {
+  opacity: .9;
+  transform: translate(-50%, 0);
+}
+}
+
+@keyframes tooltips-horz {
+to {
+  opacity: .9;
+  transform: translate(0, -50%);
+}
+}
+
+/* FX All The Things */ 
+[tooltip]:not([flow]):hover::before,
+[tooltip]:not([flow]):hover::after,
+[tooltip][flow^="up"]:hover::before,
+[tooltip][flow^="up"]:hover::after,
+[tooltip][flow^="down"]:hover::before,
+[tooltip][flow^="down"]:hover::after {
+animation: tooltips-vert 300ms ease-out forwards;
+}
+
+[tooltip][flow^="left"]:hover::before,
+[tooltip][flow^="left"]:hover::after,
+[tooltip][flow^="right"]:hover::before,
+[tooltip][flow^="right"]:hover::after {
+animation: tooltips-horz 300ms ease-out forwards;
+}
+
+/* This is just for CodePen. */
+
+.switch-field {
+display: flex;
+overflow: hidden;
+}
+
+.switch-field input {
+position: absolute !important;
+clip: rect(0, 0, 0, 0);
+height: 1px;
+width: 1px;
+border: 0;
+overflow: hidden;
+}
+
+.switch-field label {
+background-color: #e4e4e4;
+color: rgba(0, 0, 0, 0.6);
+font-size: 14px;
+line-height: 1;
+text-align: center;
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 15px;
+/* border: 1px solid rgba(0, 0, 0, 0.2); */
+/* box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1); */
+transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+cursor: pointer;
+}
+
+.switch-field input:checked + label {
+background-color: #6cb6f1;
+box-shadow: none;
+}
+
+/* .switch-field label:first-of-type {
+border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+border-radius: 0 4px 4px 0;
+} */
+
+.progress{
+height: 35px;
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -20px 0 0 -50px;
+width: 140px;
+padding-top: 12px;
+background-color: transparent;
+}
+.progress span{
+transition: all 500ms ease;
+background: #4A72DA;
+box-shadow: 1px 2px 3px #999;
+height: 10px;
+width: 10px;  
+display: inline-block;
+border-radius: 10px;
+animation: wave 2s ease  infinite;
+}  
+
+.progress span:nth-child(1){  animation-delay: 0; }
+.progress span:nth-child(2){  animation-delay: 100ms; }
+.progress span:nth-child(3){  animation-delay: 200ms; }
+.progress span:nth-child(4){  animation-delay: 300ms; }
+.progress span:nth-child(5){  animation-delay: 400ms; }
+.progress span:nth-child(6){  animation-delay: 500ms; }
+.progress span:nth-child(7){  animation-delay: 600ms; }
+.progress span:nth-child(8){  animation-delay: 700ms; }
+
+@keyframes wave{
+0%, 40%, 100% { 
+  transform: translate(0, 0);
+  background-color: #4A72DA;    
+}
+10% { 
+  transform: translate(0, -15px); 
+  background-color: red;    
+}  
+}

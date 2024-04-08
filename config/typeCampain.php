@@ -1,0 +1,27 @@
+
+<?php
+return [
+    'FORGOT' => 1,
+    'RESIDENT' => 2,
+    'SERVICE_PARTNER' => 3,
+    'NOTIFY_TRANSACTION_PAYMENT' => 4,
+    'VERIFY_CODE' => 5,
+    'BILL' => 6,
+    'NHAC_NO' => 7,
+    'POST_NEWS' => 8,
+    'NEW_USER' => 9,
+    'FEEDBACK_COMMENT' => 10,
+    'FEEDBACK' =>11,
+    'TASK' => 12,
+    'USER_REQUEST' => 15,
+    'HOA_DON' => 0,
+    'Y_KIEN' => 1,
+    'PHIEU_THU' => 2,
+    'BAN_TIN' => 3,
+    'CONG_DONG' => 4,
+    'COMMENT_POST' => 5,
+    'TIN_HAY' => 6,
+    'SU_KIEN' => 7,
+    'DANG_KY_DICH_VU' => 8,
+    'TAI_CHINH' => 11,
+];
